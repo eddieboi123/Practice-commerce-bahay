@@ -47,7 +47,7 @@ export class Function {
   getTotalPrice(){
     let total=0;
     for(let item of this.cartItems){
-      total += item.price;
+      total += item.price* item.cartStock;
     }
     return total;
   }
