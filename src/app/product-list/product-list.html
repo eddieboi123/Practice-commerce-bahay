@@ -1,0 +1,21 @@
+ <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="SearchProduct" [(ngModel)]="SearchProduct" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+<table class="table table-striped-columns">
+    <tr>
+        <th>Device</th>
+        <th>Stocks</th>
+        <th>Price</th>
+    </tr>
+    <tr *ngFor="let product of filteredProduct">
+        <td>{{ product.name }}</td>
+        <td>{{ product.stocks }}</td>
+        <td> {{product.price}}</td>
+        <td>
+            <button *ngIf="product.stocks > 0 " (click)="addToCart(product)">Add to Cart</button>
+            <button disabled *ngIf="product.stocks === 0"> Out of Stock</button>
+        </td>
+    </tr>
+</table>

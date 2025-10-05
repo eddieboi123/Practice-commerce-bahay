@@ -1,0 +1,22 @@
+<table *ngIf="cartItems.length > 0; else emptyCart" class="table">
+    <tr>
+        <th>Device Name</th>
+        <th>Device Price</th>
+        <th>Stocks</th>
+    </tr>
+    <tr *ngFor="let item of cartItems">
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.cartStock}}</td>
+    </tr>
+    <ul>
+    <h1>Total items: {{totalItems}}</h1>
+    <h1>Total Price: {{totalPrice}}</h1>    
+</ul>
+</table>
+
+
+
+<ng-template #emptyCart>
+    <h1 class = "text-center">Your Cart is Empty...</h1>
+</ng-template>
